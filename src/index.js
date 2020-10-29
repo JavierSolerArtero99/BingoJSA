@@ -48,9 +48,7 @@ const app = (() => {
                         clearModal("bingoCard" + index)
                     });
                     players = []
-                    showModal(endGame(start).render(), function () {
-                        console.log("eeeeeeeeeeee");
-                    })
+                    showModal(endGame(start).render(), () =>{})
                 })
             });
 

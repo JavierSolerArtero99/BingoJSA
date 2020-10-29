@@ -38,4 +38,14 @@ let clearModal = (templateToClear) => {
     document.getElementsByClassName(templateToClear)[0].remove()
 }
 
-export { docReady, showModal, clearModal };
+let clearGame = () => {
+    let bodyContent = document.getElementById("balls")
+    console.log(bodyContent);
+    var first = bodyContent.firstElementChild;
+    while (first) {
+        first.remove();
+        first = bodyContent.firstElementChild;
+    }
+}
+
+export { docReady, showModal, clearModal, clearGame };

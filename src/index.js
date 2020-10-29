@@ -1,5 +1,5 @@
 import './css/style.css';
-import { docReady, showModal, clearModal } from './js/core/core.js';
+import { docReady, showModal, clearModal, clearGame } from './js/core/core.js';
 import './js/card.js';
 import { Bombo } from './js/bombo.js';
 import { BingoCard } from './js/card.js';
@@ -8,6 +8,7 @@ import { PubSub } from './js/core/pubSub.js';
 import { modalPlayer, modalPlayer as ModalPlayer } from './templates/modalPlayers.js'
 import { bingoAlert } from './templates/bingoAlert';
 import { lineaAlert } from './templates/lineaAlert';
+import { endGame } from './templates/endGame';
 
 const app = (() => {
     let myApp;
@@ -22,6 +23,7 @@ const app = (() => {
     let start = () => {
         let modalPlayer = ModalPlayer([players], [addPlayer, startBingo]);
         showModal(modalPlayer.render(), startBingo)
+        console.log("vuelta a empezar");
     };
 
     let startBingo = (layout) => {
@@ -41,9 +43,14 @@ const app = (() => {
                 stop();
                 pubSub.unsubscribe("BINGO");
                 showModal(bingoAlert(player), function () {
-                    let modal = modalPlayer([addPlayer, startBingo]);
-                    showModal(modal.render(), app.start)
+                    clearGame()
+                    players.forEach((player, index) => {
+                        clearModal("bingoCard" + index)
+                    });
                     players = []
+                    showModal(endGame(start).render(), function () {
+                        console.log("eeeeeeeeeeee");
+                    })
                 })
             });
 

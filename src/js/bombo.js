@@ -15,7 +15,6 @@ export class Bombo {
         }
 
         let render = (num) => {
-            console.log(num);
             let numbers = Array.from({ length: 90 }, (_, i) => i + 1);
 
             numbers = numbers.map((item) => {

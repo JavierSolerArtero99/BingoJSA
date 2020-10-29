@@ -23,9 +23,9 @@ export function modalPlayer(atributtes, functions) {
                     </form>
                     <button class="button">Add Player</button>
                     <button class="button">Start Game</button><br>
-                    ${(atributtes[0].length > 0) ? ( `<h2>Players</h2>`) : (``)}
+                    ${(atributtes[0].length > 0) ? (`<h2>Players</h2>`) : (``)}
                     ${atributtes[0].map((player, index) => {
-                        return `<p>${index+1} - ${player}</p><br/>`
+                        return `<span>${index} - ${player}</span><br>`
                     })}
                 </div>
             </div>`;
@@ -62,8 +62,11 @@ export function modalPlayer(atributtes, functions) {
      */
     let handleAddPlayer = (e) => {
         if (newPlayer.length >= 5) {
-            functions[0](newPlayer)
-            alert("Se ha añadido un nuevo jugador")
+            if (!atributtes[0].includes(newPlayer)) {
+                functions[0](newPlayer)
+            } else {
+                alert("No se puede añadir un usuario con el mismo nombre    ")
+            }
         } else {
             alert("Introduce un usuario con más de 4 carácteres")
         }

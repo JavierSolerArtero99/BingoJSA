@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    font-family: 'Open Sans', sans-serif; 
+}
+
+body {background-color: white;}
+#balls {
+    display: inline-block;
+    word-wrap: break-word;
+    width: 100%;
+}
+#ball {
+    position: absolute;
+    color:black;
+    left: 400px;
+    top: 450px;
+}
+table {
+    border-collapse: collapse;
+    font-size: 250%;
+}
+.bingoBall {
+    height: 64px;
+    width: 64px;
+    background-color: green;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 48px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;    
+    color:white;
+}
+.bingoBallEmpty {
+    height: 64px;
+    width: 64px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    font-size: 48px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 5px;    
+    color:grey;
+}
+
+table, th, td {
+    border: 2px solid black;
+}
+th.extracted{
+    background-color:green;
+    color:white;
+}
+.nulo{
+    background-color: gray;
+}
+
+/* The Modal (background) */
+.modal {
+    text-align: center;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 60%;
+    border-radius: 20px;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .bingoImg{
+    height: 70%;
+    width: 70%;
+  }
+
+  input[type=text] {
+    display: inline;
+    width: 70%;
+    align-self: center;
+    padding: 2px 2px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid rgb(21, 178, 199);
+  }
+  input:focus{
+    outline: none;
+    }
+
+  .modal-content input {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .button {
+    display: inline;
+    background-color:rgb(21, 178, 199); 
+    border: none;
+    border-radius: 20px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+  }

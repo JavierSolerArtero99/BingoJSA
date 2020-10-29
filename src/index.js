@@ -1,5 +1,5 @@
 import './css/style.css';
-import { docReady, showModal } from './js/core/core.js';
+import { docReady, showModal, clearModal } from './js/core/core.js';
 import './js/card.js';
 import { Bombo } from './js/bombo.js';
 import { BingoCard } from './js/card.js';
@@ -15,12 +15,12 @@ const app = (() => {
     let pubSub = new PubSub();
     let cardPlayers = [];
     let stateApp = "stop";
-    let players = ["Paco"];
+    let players = [];
 
     /* APP */
 
     let start = () => {
-        let modalPlayer = ModalPlayer([addPlayer, startBingo]);
+        let modalPlayer = ModalPlayer([players], [addPlayer, startBingo]);
         showModal(modalPlayer.render(), startBingo)
     };
 
@@ -79,9 +79,11 @@ const app = (() => {
 
     /* BINGO UTILS */
 
-    let addPlayer = (newPlayer, clearNewPlayer) => {
+    let addPlayer = (newPlayer) => {
         players.push(newPlayer)
-        clearNewPlayer();
+        clearModal("modal")
+        let modalPlayer = ModalPlayer([players], [addPlayer, startBingo]);
+        showModal(modalPlayer.render(), startBingo)
     }
 
     return {

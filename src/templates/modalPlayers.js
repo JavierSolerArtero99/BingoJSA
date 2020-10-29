@@ -5,10 +5,9 @@
      *  functions[0] => addPlayer(): añade un nuevo jugador
      *  functions[1] => startBingo(): empieza una nueva partida del bingo con los jugadores introducidos
      */
-export function modalPlayer(functions) {
+export function modalPlayer(atributtes, functions) {
 
     /* DECLARACIONES */
-
     let newPlayer = "";     //valor del nuevo player
     let playerInput;        //input para introducir usuario
     //template HTML
@@ -20,11 +19,15 @@ export function modalPlayer(functions) {
                     <h1>Bingo players</h1>
                     <form id="modalPardal">
                         <label for="fname">Add Players</label><br/>
-                        <input type="text" id="fname" name="fname"><br/>  
+                        <input type="text" id="fname" name="fname"><br/>
                     </form>
                     <button class="button">Add Player</button>
-                    <button class="button">Start Game</button>
-                </div>  
+                    <button class="button">Start Game</button><br>
+                    ${(atributtes[0].length > 0) ? ( `<h2>Players</h2>`) : (``)}
+                    ${atributtes[0].map((player, index) => {
+                        return `<p>${index+1} - ${player}</p><br/>`
+                    })}
+                </div>
             </div>`;
 
     /**
@@ -59,7 +62,7 @@ export function modalPlayer(functions) {
      */
     let handleAddPlayer = (e) => {
         if (newPlayer.length >= 5) {
-            functions[0](newPlayer, clearNewPlayer)
+            functions[0](newPlayer)
             alert("Se ha añadido un nuevo jugador")
         } else {
             alert("Introduce un usuario con más de 4 carácteres")
@@ -68,10 +71,6 @@ export function modalPlayer(functions) {
 
     let handleStartGame = (e) => {
         functions[1](layout)
-    }
-
-    let clearNewPlayer = () => {
-        newPlayer = "";
     }
 
     /**

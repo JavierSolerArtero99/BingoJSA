@@ -33,4 +33,9 @@ let showModal = (templateHtml, callback) => {
         }
     }
 }
-export { docReady, showModal };
+
+let clearModal = (templateToClear) => {
+    document.getElementsByClassName(templateToClear)[0].remove()
+}
+
+export { docReady, showModal, clearModal };
